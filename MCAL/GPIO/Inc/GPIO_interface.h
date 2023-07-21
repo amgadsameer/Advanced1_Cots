@@ -1,6 +1,10 @@
 #ifndef GPIO_INTERFACE_H
 #define GPIO_INTERFACE_H
 
+/*****
+ * @Port_t enum
+ *
+ */
 typedef enum
 {
 	PORTA=0,
@@ -10,9 +14,13 @@ typedef enum
 	PORTE,
 	PORTF,
 	PORTG,
-	PORTH
+	PORTH,
 }Port_t;
 
+/**********************************
+ *
+ * @Pin_t enum
+ */
 typedef enum
 {
 	PIN0=0,
@@ -62,6 +70,10 @@ typedef enum
 	PULLDOWN
 }PullUpDown_t;
 
+/************************************
+ * @PinVal_t enum
+ *
+ */
 typedef enum
 {
 	PIN_LOW=0,
@@ -97,10 +109,10 @@ typedef struct
 	OutputType_t OutputType;
 	PullUpDown_t PullType;
 	AltFunc_t AltFunc;
-}PinConfig_t;
+}GPIO_PinConfig_t;
 
 
-uint8_t GPIO_u8PinInit(const PinConfig_t* PinConfig);
+uint8_t GPIO_u8PinInit(const GPIO_PinConfig_t* PinConfig);
 
 uint8_t GPIO_u8SetPinValue(Port_t Port, Pin_t PinNum,PinVal_t PinVal );
 
