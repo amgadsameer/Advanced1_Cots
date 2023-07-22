@@ -22,6 +22,8 @@
 
 #define RCC_BASE_ADDRESS				0x40023800U
 
+#define EXTI_BASE_ADDRESS				0x40013C00U
+
 
 /*************************		AHB2 Peripgheral Base Addresses		************************/
 
@@ -97,6 +99,21 @@ typedef struct
   volatile uint32_t DCKCFGR2;      /*!< RCC Dedicated Clocks configuration register 2,                */
 } RCC_RegDef_t;
 
+
+
+/*************************		EXTI Register Definition Structure	************************/
+typedef struct
+{
+	volatile uint32_t IMR;
+	volatile uint32_t EMR;
+	volatile uint32_t RTSR;
+	volatile uint32_t FTSR;
+	volatile uint32_t SWIER;
+	volatile uint32_t PR;
+	
+}EXTI_RegDef_t;
+
+
 /*************************		GPIO Peripgheral Definitions		************************/
 
 #define GPIOA			               	((GPIO_RegDef_t*)GPIOA_BASE_ADDRESS)
@@ -112,6 +129,10 @@ typedef struct
 /*************************		RCC Peripgheral Definition		************************/
 
 #define RCC			               	((RCC_RegDef_t*)RCC_BASE_ADDRESS)
+
+/*************************		EXTI Peripgheral Definition		************************/
+
+#define EXTI						((EXTI_RegDef_t*)EXTI_BASE_ADDRESS)
 
 
 #endif
