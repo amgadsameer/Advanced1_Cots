@@ -22,6 +22,7 @@
 
 #define RCC_BASE_ADDRESS				0x40023800U
 
+#define SYSCFG_BASE_ADDRESS				0x40013800U
 #define EXTI_BASE_ADDRESS				0x40013C00U
 
 
@@ -100,7 +101,6 @@ typedef struct
 } RCC_RegDef_t;
 
 
-
 /*************************		EXTI Register Definition Structure	************************/
 typedef struct
 {
@@ -110,8 +110,21 @@ typedef struct
 	volatile uint32_t FTSR;
 	volatile uint32_t SWIER;
 	volatile uint32_t PR;
-	
 }EXTI_RegDef_t;
+
+/*************************		SYSCFG Register Definition Structure	************************/
+	
+typedef struct
+{
+	volatile uint32_t MEMRMP;
+	volatile uint32_t PMC;
+	volatile uint32_t CR[4];
+	volatile uint32_t Reserved1[2];
+	volatile uint32_t CMPCR;
+	volatile uint32_t Reserved2[2];
+	volatile uint32_t CFGR;
+	
+}SYSCFG_RegDef_t;
 
 
 /*************************		GPIO Peripgheral Definitions		************************/
@@ -134,5 +147,7 @@ typedef struct
 
 #define EXTI						((EXTI_RegDef_t*)EXTI_BASE_ADDRESS)
 
+
+#define SYSCFG						((SYSCFG_RegDef_t*)SYSCFG_BASE_ADDRESS)
 
 #endif
